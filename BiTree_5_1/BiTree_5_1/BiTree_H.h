@@ -17,3 +17,5 @@ void InOrderTraverse(BiTree T);
 void PreOrderTraverse(BiTree T);
 
 void PostOrderTraverse(BiTree T);
+
+void visit(void);
