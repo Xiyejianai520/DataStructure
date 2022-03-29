@@ -18,4 +18,4 @@ void PreOrderTraverse(BiTree T);
 
 void PostOrderTraverse(BiTree T);
 
-void visit(void);
+void visit(BiTree T);
