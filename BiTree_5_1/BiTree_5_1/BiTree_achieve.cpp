@@ -1,30 +1,49 @@
-#include"BiTree_H.h"
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<malloc.h>
+#include <iostream>
+
+using namespace std;
 
 char CreateBiTree(BiTree &T) {
 	char ch;
-	//printf("ÇëÊäÈë×Ö·û´®£º");
-	scanf("%c", &ch);
-	if (ch == '#') {			//µİ¹é½áÊø£¬½¨¿ÕÊ÷(½Úµã)
+	//printf("è¯·è¾“å…¥å­—ç¬¦ä¸²ï¼š");
+	cin >> ch;
+	if (ch == '#') {			//é€’å½’ç»“æŸï¼Œå»ºç©ºæ ‘(èŠ‚ç‚¹)
 		T = NULL;	
 	}
 	else {
-		BiTree T = (BiTree)malloc(sizeof(BiTNode));
-		//T = new BiTNode;		//Éú³É¸ù½Úµã
-		T->data = ch;			//¸ù½áµãÊı¾İÓòÖÃÎªch[i]
-		CreateBiTree(T->lchild);//µİ¹é´´½¨×ó×ÓÊ÷
-		CreateBiTree(T->rchild);//µİ¹é´´½¨ÓÒ×ÓÊ÷
-		return T->data;
+		T = new BiTnode;
+		//T = new BiTNode;		//ç”Ÿæˆæ ¹èŠ‚ç‚¹
+		T -> data = ch;			//æ ¹ç»“ç‚¹æ•°æ®åŸŸç½®ä¸ºch[i]
+		CreateBiTree(T -> lchild);//é€’å½’åˆ›å»ºå·¦å­æ ‘
+		CreateBiTree(T -> rchild);//é€’å½’åˆ›å»ºå³å­æ ‘
+		return T -> data;
 	}
 }
 
 void InOrderTraverse(BiTree T) {
-	if (T) {					//Èô¶ş²æÊ÷·Ç¿Õ
-		InOrderTraverse(T->lchild);//ÖĞĞò±éÀú×ó×ÓÊ÷
-		printf("%c", T->data);	//·ÃÎÊ¸ù½Úµã
-		InOrderTraverse(T->rchild);//ÖĞĞò±éÀúÓÒ×ÓÊ÷
+	if (T) 
+	{					//è‹¥äºŒå‰æ ‘éç©º
+		InOrderTraverse(T -> lchild);//ä¸­åºéå†å·¦å­æ ‘
+		cout << T -> data << "\t";	//è®¿é—®æ ¹èŠ‚ç‚¹
+		InOrderTraverse(T -> rchild);//ä¸­åºéå†å³å­æ ‘
+	}
+}
+
+void PreOrderTraverse(BiTree T)
+{
+	if(T)
+	{
+		cout << T -> data << "\t";
+		PreOrderTraverse(T -> lchild);
+		PreOrderTraverse(T -> rchild);
+	}
+}
+
+void PostOrderTraverse(BiTree T)
+{
+	if(T)
+	{
+		PreOrderTraverse(T -> lchild);
+		PreOrderTraverse(T -> rchild);
+		cout << T -> data << "\t";
 	}
 }
