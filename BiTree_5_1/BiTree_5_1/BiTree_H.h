@@ -3,13 +3,17 @@ typedef char ElemType;
 
 #define MAXSIZE 100
 
-//------------------¶ş²æÊ÷µÄ¶ş²æÁ´±í´æ´¢±íÊ¾------------------
+//------------------äºŒå‰æ ‘çš„äºŒå‰é“¾è¡¨å­˜å‚¨è¡¨ç¤º------------------
 typedef struct BiTNode {
-	ElemType data;						//½áµãÊı¾İÓò
-	struct BiTNode *lchild, *rchild;	//×óÓÒº¢×ÓÖ¸Õë
+	ElemType data;						//ç»“ç‚¹æ•°æ®åŸŸ
+	struct BiTNode *lchild, *rchild;	//å·¦å³å­©å­æŒ‡é’ˆ
 }BiTNode , *BiTree;
 
-//ÏÈĞò±éÀúµÄË³Ğò½¨Á¢¶ş²æÁ´±í
+//å…ˆåºéå†çš„é¡ºåºå»ºç«‹äºŒå‰é“¾è¡¨
 char CreateBiTree(BiTree &T);
-//ÖĞĞò±éÀú¶ş²æÊ÷
+//ä¸­åºéå†äºŒå‰æ ‘
 void InOrderTraverse(BiTree T);
+
+void PreOrderTraverse(BiTree T);
+
+void PostOrderTraverse(BiTree T);
