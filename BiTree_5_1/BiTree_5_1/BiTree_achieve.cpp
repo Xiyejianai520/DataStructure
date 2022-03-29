@@ -22,7 +22,7 @@ void InOrderTraverse(BiTree T) {
 	if (T) 
 	{					//若二叉树非空
 		InOrderTraverse(T -> lchild);//中序遍历左子树
-		visit();	//访问根节点
+		visit(T);	//访问根节点
 		InOrderTraverse(T -> rchild);//中序遍历右子树
 	}
 }
@@ -31,7 +31,7 @@ void PreOrderTraverse(BiTree T)
 {
 	if(T)
 	{
-		visit();
+		visit(T);
 		PreOrderTraverse(T -> lchild);
 		PreOrderTraverse(T -> rchild);
 	}
@@ -43,11 +43,11 @@ void PostOrderTraverse(BiTree T)
 	{
 		PreOrderTraverse(T -> lchild);
 		PreOrderTraverse(T -> rchild);
-		visit();
+		visit(T);
 	}
 }
 
-void visit(void)
+void visit(BiTree T)
 {
 	cout << T -> data << "\t";
 }
