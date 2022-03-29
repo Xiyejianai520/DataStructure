@@ -10,8 +10,7 @@ char CreateBiTree(BiTree &T) {
 		T = NULL;	
 	}
 	else {
-		T = new BiTnode;
-		//T = new BiTNode;		//生成根节点
+		T = new BiTnode;		//生成根节点
 		T -> data = ch;			//根结点数据域置为ch[i]
 		CreateBiTree(T -> lchild);//递归创建左子树
 		CreateBiTree(T -> rchild);//递归创建右子树
